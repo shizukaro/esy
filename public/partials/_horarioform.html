@@ -1,0 +1,41 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="matricula" class="uk-form-label">Hora de entrada</label>
+        <input type="text" ng-model="horario.horaEntrada" id="horaEntrada"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre class="uk-form-label"">Hora de salida</label>
+        <input type="text" ng-model="horario.horaSalida" id="horaSalida" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="dia">Dia</label>
+        <select id="dia" data-md-selectize ng-model="horario.dia" >
+            <option value="lu" selected>Lunes</option>
+            <option value="ma" selected>Martes</option>
+            <option value="mi" selected>Miércoles</option>
+            <option value="ju" selected>Jueves</option>
+            <option value="vi" selected>Viernes</option>
+            <option value="sa" selected>Sabado</option>
+            <option value="do" selected>Domingo</option>
+        </select>
+    </div>
+</div>
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="salon">Salon</label>
+        <select id="salon" data-md-selectize ng-model="horario.salon">
+            <option ng-repeat="salon in salones" ng-value="salon._id">{{salon.numero + ' ' + salon.piso + ' ' + salon.edificio }}</option>
+        </select>        
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="curso">Curso</label>
+        <select id="curso" data-md-selectize ng-model="horario.curso">
+            <option ng-repeat="curso in cursos" ng-value="curso.nrc">{{curso.nrc}}</option>
+        </select>        
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

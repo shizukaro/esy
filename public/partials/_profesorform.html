@@ -1,0 +1,38 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="matricula" class="uk-form-label">DNI</label>
+        <input type="text" ng-model="profesor.dni" id="dni"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre class="uk-form-label"">Nombre(s)</label>
+        <input type="text" ng-model="profesor.nombreCompleto.nombre" id="nombre" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <div class="uk-grid" data-uk-grid-margin>
+            <div class="uk-width-medium-1-2">
+                <label for="paterno" class="uk-form-label">Apellido Paterno</label>
+                <input type="text" ng-model="profesor.nombreCompleto.aPaterno" id="paterno" class="md-input"/>
+            </div>
+            <div class="uk-width-medium-1-2">
+                <label for="materno" class="uk-form-label">Apellido Materno</label>
+                <input type="text" ng-model="profesor.nombreCompleto.aMaterno" id="materno" class="md-input"/>
+            </div>
+        </div>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="sexo">Sexo {{profesor.sexo}}</label>
+        <select data-md-selectize ng-model="profesor.sexo" >
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select>
+    </div>
+    <div class="uk-form-row">
+        <label for="nacimiento" class="uk-form-label">Fecha de Nacimiento {{profesor.fechaNacimiento | date:'medium'}}</label>
+        <input type="date" ng-model="profesor.fechaNacimiento" class="md-input" id="nacimiento" placeholder="yyyy-MM-dd"/>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

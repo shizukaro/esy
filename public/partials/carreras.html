@@ -1,0 +1,83 @@
+<div id="page_content_inner">
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-medium-2-10">
+                    <label for="product_search_price">Nombre de la carrera</label>
+                    <input type="text" class="md-input" id="carrera_busqueda_nombre" ng-model="q.nombre">
+                </div>
+                <div class="uk-width-medium-3-10">
+                    <label for="product_search_name">Nivel</label>
+                    <input type="text" class="md-input" id="carrera_busqueda_nivel" ng-model="q.nivelEducativo">
+                </div>
+                <!--<div class="uk-width-medium-2-10">
+                    <div class="uk-margin-small-top">
+                        <select id="alumno_busqueda_sexo" data-md-selectize>
+                            <option value="1" selected="selected">Cualquier sexo</option>
+                            <option value="2">Masculino</option>
+                            <option value="3">Femenino</option>
+                        </select>
+                    </div>
+                </div>-->
+                <div class="uk-width-medium-3-10">
+                    <div class="uk-margin-small-top">
+                        <select id="product_search_status" data-md-selectize multiple data-md-selectize-bottom ng-model="q.modalidad">
+                            <option value="">Modalidad</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="online">Distancia</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <div class="uk-overflow-container">
+                        <table class="uk-table uk-table-align-vertical">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Nivel educativo</th>
+                                    <th>Modalidad</th>
+                                    <th>Fecha de Inicio</th>
+                                    <th>Creditos Minimos</th>
+                                    <th>Creditos maximos</th>
+                                    <th>Tipo plan de estudios</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="carrera in carreras | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                    <td class="uk-text-large uk-text-nowrap">{{ carrera.nombre }}</td>
+                                    <td class="uk-text-nowrap">{{ carrera.nivelEducativo }}</td>
+                                    <td class="uk-text-nowrap">{{ carrera.modalidad }}</td>
+                                    <td class="uk-text-nowrap">{{ carrera.fechaInicio | date:'medium' }}</td>
+                                    <td class="uk-text-nowrap">{{ carrera.creditosMinimos }}</td>
+                                    <td class="uk-text-nowrap">{{ carrera.creditosMaximos }}</td>
+                                    <td class="uk-text-nowrap">{{ carrera.tipoPlanEstudios }}</td>
+                                    <td class="uk-text-nowrap">
+                                        <a title="Ver" ui-sref="viewCarrera({_id:carrera._id})"><i class="material-icons md-24 uk-text-primary">&#xE8F4;</i></a>
+                                        <a title="Eliminar" ng-click="deleteCarrera(carrera)" class="uk-margin-left"><i class="material-icons md-24 uk-text-danger">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-fab-wrapper">
+        <a class="md-fab md-fab-accent" ui-sref="newCarrera">
+            <i class="material-icons">&#xE145;</i>
+        </a>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

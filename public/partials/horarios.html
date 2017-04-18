@@ -1,0 +1,83 @@
+<div id="page_content_inner">
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-medium-3-10">
+                    <div class="uk-margin-small-top">
+                        <select id="salon" data-md-selectize ng-model="q.salon">
+                            <option value="">Cualquier Salon</option>
+                            <option ng-repeat="salon in salones" ng-value="salon.ubicacion">{{salon.numero + ' ' + salon.piso + ' ' + salon.edificio }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uk-width-medium-3-10">
+                    <div class="uk-margin-small-top">
+                        <select id="curso" data-md-selectize ng-model="q.curso">
+                            <option value="">Cualquier curso</option>
+                            <option ng-repeat="curso in cursos" value="curso.nrc" selected>{{curso.nrc}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uk-width-medium-3-10">
+                    <div class="uk-margin-small-top">
+                        <select id="dia" data-md-selectize ng-model="q.dia" >
+                            <option value="" selected>Cualquier dia</option>
+                            <option value="lu" selected>Lunes</option>
+                            <option value="ma" selected>Martes</option>
+                            <option value="mi" selected>Miércoles</option>
+                            <option value="ju" selected>Jueves</option>
+                            <option value="vi" selected>Viernes</option>
+                            <option value="sa" selected>Sabado</option>
+                            <option value="do" selected>Domingo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <div class="uk-overflow-container">
+                        <table class="uk-table uk-table-align-vertical">
+                            <thead>
+                                <tr>
+                                    <th>Hora de entrada</th>
+                                    <th>Hora de salida</th>
+                                    <th>Dia</th>
+                                    <th>Salón</th>
+                                    <th>Curso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="horario in horarios | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                    <td class="uk-text-large uk-text-nowrap">{{ horario.horaEntrada }}</td>
+                                    <td class="uk-text-nowrap">{{ horario.horaSalida }}</td>
+                                    <td class="uk-text-nowrap">{{ horario.dia }}</td>
+                                    <td class="uk-text-nowrap">{{ horario.salon }}</td>
+                                    <td class="uk-text-nowrap">{{ horario.curso }}</td>
+                                    <td class="uk-text-nowrap">
+                                        <a title="Ver" ui-sref="viewHorario({_id:horario._id})"><i class="material-icons md-24 uk-text-primary">&#xE8F4;</i></a>
+                                        <a title="Eliminar" ng-click="deleteHorario(horario)" class="uk-margin-left"><i class="material-icons md-24 uk-text-danger">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-fab-wrapper">
+        <a class="md-fab md-fab-accent" ui-sref="newHorario">
+            <i class="material-icons">&#xE145;</i>
+        </a>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

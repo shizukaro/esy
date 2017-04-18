@@ -1,0 +1,60 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="matricula" class="uk-form-label">Codigo</label>
+        <input type="text" ng-model="asignatura.codigo" id="codigo"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Creditos</label>
+        <input type="number" ng-model="asignatura.creditos" id="creditos" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Nombre</label>
+        <input type="text" ng-model="asignatura.nombre" id="nombre" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Nombre corto</label>
+        <input type="text" ng-model="asignatura.nombreCorto" id="nombreCorto" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Horas teoria</label>
+        <input type="number" ng-model="asignatura.horasTeoria" id="horasTeoria" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Horas practica</label>
+        <input type="number" ng-model="asignatura.horasPractica" id="horasPractica" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Horas independientes</label>
+        <input type="number" ng-model="asignatura.horasIndependiente" id="horasIndependiente" class="md-input"/>
+    </div>
+</div>
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="nivel">Nivel {{asignatura.nivel}}</label>
+        <select data-md-selectize ng-model="asignatura.nivel" >
+            <option value="basico">Básico</option>
+            <option value="formativo">Formativo</option>
+        </select>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Periodo minimo</label>
+        <input type="text" ng-model="asignatura.periodoMinimo" id="periodoMinimo" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="carrera">Carrera</label>
+        <select id="carrera" data-md-selectize ng-model="asignatura.carrera">
+            <option ng-repeat="carrera in carreras" ng-value="carrera._id">{{carrera.nombre}}</option>
+        </select>        
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="area">Area</label>
+        <select id="area" data-md-selectize ng-model="asignatura.area">
+            <option ng-repeat="area in areas" ng-value="area._id">{{area.nombre}}</option>
+        </select>        
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

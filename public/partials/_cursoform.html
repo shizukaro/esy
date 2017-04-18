@@ -1,0 +1,35 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="matricula" class="uk-form-label">NRC</label>
+        <input type="text" ng-model="curso.nrc" id="nrc"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="nombre class="uk-form-label"">Cupo</label>
+        <input type="number" ng-model="curso.cupo" id="nombre" class="md-input"/>
+    </div>
+</div>
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="profesor">Profesor</label>
+        <select id="profesor" data-md-selectize ng-model="curso.profesor">
+            <option ng-repeat="profesor in profesores" ng-value="profesor.dni">{{profesor.nombreCompleto.nombre + ' ' + profesor.nombreCompleto.aPaterno + ' ' + profesor.nombreCompleto.aMaterno}}</option>
+        </select>        
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="periodo">Periodo</label>
+        <select id="periodo" data-md-selectize ng-model="curso.periodo">
+            <option ng-repeat="periodo in periodos" ng-value="periodo._id">{{ periodo.nombre }}</option>
+        </select>        
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="asignatura">Asignatura</label>
+        <select id="asignatura" data-md-selectize ng-model="curso.asignatura">
+            <option ng-repeat="asignatura in asignaturas" ng-value="asignatura.codigo">{{ asignatura.nombre }}</option>
+        </select>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

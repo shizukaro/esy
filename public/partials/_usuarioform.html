@@ -1,0 +1,28 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <div class="uk-grid" data-uk-grid-margin>
+            <div class="uk-width-medium-1-2">
+                <label for="identificador" class="uk-form-label">Usuario</label>
+                <input type="text" ng-model="usuario.identificador" id="identificador" class="md-input"/>
+            </div>
+            <div class="uk-width-medium-1-2">
+                <label for="contrasena" class="uk-form-label">Contraseña</label>
+                <input type="password" ng-model="usuario.contrasena" id="contrasena" class="md-input"/>
+            </div>
+        </div>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="tipo">Tipo de usuario {{usuario.tipo}}</label>
+        <select data-md-selectize ng-model="usuario.tipo" >
+            <option value="alumno" selectize>Alumno</option>
+            <option value="tutor" selectize>Tutor</option>
+            <option value="profesor" selectize>Profesor</option>
+            <option value="administrador" selectize>Administrador</option>
+        </select>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

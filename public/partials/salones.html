@@ -1,0 +1,78 @@
+<div id="page_content_inner">
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-medium-2-10">
+                    <label for="product_search_price">Matr&iacute;cula</label>
+                    <input type="number" class="md-input" id="alumno_busqueda_matricula" ng-model="q.matricula">
+                </div>
+                <div class="uk-width-medium-3-10">
+                    <label for="product_search_name">Nombre del alumno</label>
+                    <input type="text" class="md-input" id="alumno_busqueda_nombre" ng-model="q.nombreCompleto.nombre">
+                </div>
+                <div class="uk-width-medium-2-10">
+                    <div class="uk-margin-small-top">
+                        <select id="alumno_busqueda_sexo" data-md-selectize ng-model="q.sexo">
+                            <option value="" selected="selected">Cualquier sexo</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uk-width-medium-3-10">
+                    <div class="uk-margin-small-top">
+                        <select id="product_search_status" data-md-selectize multiple data-md-selectize-bottom>
+                            <option value="">Status</option>
+                            <option value="1">In stock</option>
+                            <option value="2">Out of stock</option>
+                            <option value="3">Ships in 3-5 days</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <div class="uk-overflow-container">
+                        <table class="uk-table uk-table-align-vertical">
+                            <thead>
+                                <tr>
+                                    <th>Ubicación</th>
+                                    <th>Edificio</th>
+                                    <th>Piso</th>
+                                    <th>Número</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="salon in salones | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                    <td class="uk-text-large uk-text-nowrap">{{ salon.ubicacion }}</td>
+                                    <td class="uk-text-nowrap">{{ salon.edificio }}</td>
+                                    <td class="uk-text-nowrap">{{ salon.piso }}</td>
+                                    <td class="uk-text-nowrap">{{ salon.numero }}</td>
+                                    <td class="uk-text-nowrap">
+                                        <a title="Ver" ui-sref="viewSalon({_id:salon._id})"><i class="material-icons md-24 uk-text-primary">&#xE8F4;</i></a>
+                                        <a title="Eliminar" ng-click="deleteSalon(salon)" class="uk-margin-left"><i class="material-icons md-24 uk-text-danger">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-fab-wrapper">
+        <a class="md-fab md-fab-accent" ui-sref="newSalon">
+            <i class="material-icons">&#xE145;</i>
+        </a>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

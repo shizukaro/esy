@@ -1,0 +1,55 @@
+<div id="page_content_inner">
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-medium-3-10">
+                    <label for="product_search_price">Materia</label>
+                    <input type="text" class="md-input" id="prerrequisito_busqueda_materia" ng-model="q.materia">
+                </div>
+                <div class="uk-width-medium-3-10">
+                    <label for="product_search_name">Prerrequisito</label>
+                    <input type="text" class="md-input" id="prerrequisito_busqueda_prerrequisito" ng-model="q.prerrequisito">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-card">
+        <div class="md-card-content">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <div class="uk-overflow-container">
+                        <table class="uk-table uk-table-align-vertical">
+                            <thead>
+                                <tr>
+                                    <th>Asignatura</th>
+                                    <th>Prerrequisito</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="prerrequisito in prerrequisitos | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                    <td class="uk-text-large uk-text-nowrap">{{ prerrequisito.asignatura }}</td>
+                                    <td class="uk-text-nowrap">{{ prerrequisito.prerrequisito }}</td>
+                                    <td class="uk-text-nowrap">
+                                        <a title="Ver" ui-sref="viewPrerrequisito({asignatura:prerrequisito.asignatura})"><i class="material-icons md-24 uk-text-primary">&#xE8F4;</i></a>
+                                        <a title="Eliminar" ng-click="deletePrerrequisito(prerrequisito)" class="uk-margin-left"><i class="material-icons md-24 uk-text-danger">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-fab-wrapper">
+        <a class="md-fab md-fab-accent" ui-sref="newPrerrequisito">
+            <i class="material-icons">&#xE145;</i>
+        </a>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

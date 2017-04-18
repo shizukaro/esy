@@ -1,0 +1,84 @@
+<div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }">
+    <h1>{{carrera.nombre}}</h1>
+    <span class="uk-text-muted uk-text-upper uk-text-small">{{carrera.nivelEducativo}}</span>
+</div>
+<div id="page_content_inner">
+    <div class="uk-grid uk-grid-medium" data-uk-grid-margin>
+        <div class="uk-width-xLarge-12-10  uk-width-large-12-10">
+            <div class="md-card">
+                <div class="md-card-toolbar">
+                    <h3 class="md-card-toolbar-heading-text">
+                        Detalles
+                    </h3>
+                </div>
+                <div class="md-card-content large-padding">
+                    <div class="uk-grid uk-grid-divider uk-grid-medium">
+                        <div class="uk-width-large-1-2">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-large-1-3">
+                                    <span class="uk-text-muted uk-text-small">Nombre</span>
+                                </div>
+                                <div class="uk-width-large-2-3">
+                                    <span class="uk-text-large uk-text-middle"><a  ui-sref="editCarrera({_id:carrera._id})">{{carrera.nombre}}</a></span>
+                                </div>
+                            </div>
+                            <hr class="uk-grid-divider">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-large-1-3">
+                                    <span class="uk-text-muted uk-text-small">Nivel educativo</span>
+                                </div>
+                                <div class="uk-width-large-2-3">
+                                    <span class="uk-text-large uk-text-middle">{{carrera.nivelEducativo}}</span>
+                                </div>
+                            </div>
+                            <hr class="uk-grid-divider">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-large-1-3">
+                                    <span class="uk-text-muted uk-text-small">Modalidad</span>
+                                </div>
+                                <div class="uk-width-large-2-3">
+                                    {{carrera.modalidad}}
+                                </div>
+                            </div>
+                            <hr class="uk-grid-divider">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-large-1-3">
+                                    <span class="uk-text-muted uk-text-small">Fecha de inicio</span>
+                                </div>
+                                <div class="uk-width-large-2-3">
+                                    {{carrera.fechaInicio | date:'medium'}}
+                                </div>
+                            </div>
+                            <hr class="uk-grid-divider">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-large-1-3">
+                                    <span class="uk-text-muted uk-text-small">Creditos minimos</span>
+                                </div>
+                                <div class="uk-width-large-2-3">
+                                    {{carrera.creditosMinimos}}
+                                </div>
+                            </div>
+                            <hr class="uk-grid-divider uk-hidden-large">
+                        </div>
+                        <div class="uk-width-large-1-2">
+                            <p>
+                                <span class="uk-text-muted uk-text-small uk-display-block uk-margin-small-bottom">Creditos maximos</span>
+                                <span class="uk-display-block">{{carrera.creditosMaximos}}</span>
+                            </p>
+                            <hr class="uk-grid-divider">
+                            <p>
+                                <span class="uk-text-muted uk-text-small uk-display-block uk-margin-small-bottom">Campus</span>
+                                CU
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="md-fab-wrapper">
+    <a class="md-fab md-fab-primary" ui-sref="editCarrera({_id:carrera._id})">
+        <i class="material-icons">&#xE150;</i>
+    </a>
+</div>

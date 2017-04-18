@@ -1,0 +1,70 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="nombre" class="uk-form-label">Nombre</label>
+        <input type="text" ng-model="carrera.nombre" id="nombre" class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="nivelEducativo">Nivel educativo</label>
+        <select id="nivelEducativo" data-md-selectize ng-model="carrera.nivelEducativo" >
+            <option value="licenciatura" selected>Licenciatura</option>
+            <option value="maestria" selected>Maestria</option>
+            <option value="doctorado" selected>Doctorado</option>
+        </select>
+    </div>
+    <div class="uk-form-row">
+        <label for="modalidad" class="uk-form-label">Modalidad</label>
+        <select id="modalidad" data-md-selectize ng-model="carrera.modalidad" >
+            <option value="presencial" selected>Presencial</option>
+            <option value="online" selected>Online</option>
+        </select>
+    </div>
+    <div class="uk-form-row">
+        <label for="inicio" class="uk-form-label">Fecha de Inicio {{carrera.fechaInicio | date:'medium'}}</label>
+        <input type="date" ng-model="carrera.fechaInicio" class="md-input" id="fechaInicio" placeholder="yyyy-MM-dd"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="fin" class="uk-form-label">Fecha de Finalización {{carrera.fechaFinalizacion | date:'medium'}}</label>
+        <input type="date" ng-model="carrera.fechaFinalizacion" class="md-input" id="fechaFinalizacion" placeholder="yyyy-MM-dd"/>
+    </div>
+</div>
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="creditosMinimos" class="uk-form-label">Creditos minimos</label>
+        <input type="number" ng-model="carrera.creditosMinimos" id="creditosMinimos"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="creditosMaximos" class="uk-form-label">Creditos maximos</label>
+        <input type="number" ng-model="carrera.creditosMaximos" id="creditosMaximos"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="horasMinimas" class="uk-form-label">Horas minimas</label>
+        <input type="number" ng-model="carrera.horasMinimas" id="horasMinimas"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="horasMaximas" class="uk-form-label">Horas maximas</label>
+        <input type="number" ng-model="carrera.horasMaximas" id="horasMaximas"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="tipoPlanEstudios" class="uk-form-label">Tipo plan de estudios</label>
+        <input type="text" ng-model="carrera.tipoPlanEstudios" id="tipoPlanEstudios"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="tituloOtorgado" class="uk-form-label">Titulo otorgado</label>
+        <input type="text" ng-model="carrera.tituloOtorgado" id="tituloOtorgado"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="certificadoOtorgado" class="uk-form-label">Certificado otorgado</label>
+        <input type="text" ng-model="carrera.certificadoOtorgado" id="certificadoOtorgado"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="campus">Campus</label>
+        <select id="campus" data-md-selectize ng-model="carrera.campus">
+            <option ng-repeat="campus in campus" ng-value="campus._id">{{campus.nombre}}</option>
+        </select>
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>

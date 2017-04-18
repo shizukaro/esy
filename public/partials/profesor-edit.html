@@ -1,0 +1,28 @@
+<div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }">
+	<h1>{{profesor.nombreCompleto.nombre + ' ' + profesor.nombreCompleto.aPaterno + ' ' + profesor.nombreCompleto.aMaterno}}</h1>
+	<span class="uk-text-muted uk-text-upper uk-text-small">{{profesor.dni}}</span>
+</div>
+<div id="page_content_inner">
+	<form class="form-horizontal" role="form" ng-submit="updateProfesor()">
+		<div class="uk-grid uk-grid-medium" data-uk-grid-margin>
+			<div class="uk-width-xLarge-12-10  uk-width-large-12-10">
+				<div class="md-card">
+					<div class="md-card-toolbar">
+						<h3 class="md-card-toolbar-heading-text">
+							Detalles
+						</h3>
+					</div>
+					<div class="md-card-content large-padding">
+						<div class="uk-grid uk-grid-divider uk-grid-medium" ng-include="'partials/_profesorform.html'">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="md-fab-wrapper">
+	<a class="md-fab md-fab-primary" ng-click="updateProfesor()">
+		<i class="material-icons">&#xE161;</i>
+	</a>
+</div>

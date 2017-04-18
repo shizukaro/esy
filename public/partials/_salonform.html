@@ -1,0 +1,25 @@
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="ubicacion" class="uk-form-label">Ubicacion</label>
+        <input type="text" ng-model="salon.ubicacion" id="ubicacion"class="md-input"/>
+    </div>
+    <div class="uk-form-row">
+        <label for="edificio" class="uk-form-label">Edificio</label>
+        <input type="text" ng-model="salon.edificio" id="edificio" class="md-input"/>
+    </div>
+</div>
+<div class="uk-width-large-1-2">
+    <div class="uk-form-row">
+        <label for="piso" class="uk-form-label">Piso</label>
+        <input type="number" ng-model="salon.piso" class="md-input" id="piso" />
+    </div>
+    <div class="uk-form-row">
+        <label for="numero" class="uk-form-label">Numero</label>
+        <input type="number" ng-model="salon.numero" class="md-input" id="numero" />
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        altair_md.init();
+        altair_forms.init();}, 50);
+</script>
